@@ -9,22 +9,30 @@ import HandleEvent from './HandleEvent/HandleEvent';
 import DemoState from './DemoState/DemoState';
 import BaiTapChonXe from './DemoState/BaiTapChonXe/BaiTapChonXe';
 import RenderWithMap from './RenderWithMap/RenderWithMap';
+import BaiTapRenderPhim from './RenderWithMap/BaiTapRenderPhim';
+import DemoProp from './Props/DemoProp';
+import ProductRFC from './Props/ProductRFC';
+import ProductListRCC from './Props/ProductListRCC';
 
 function App() {
   return (
     <div className="App">
-  {/* <h1>Hello</h1>
+      {/* <h1>Hello</h1>
   <DemoFunctionComponent />
   <DemoFunctionComponent />
  
   <DemoReactClassComponent/> */}
-  {/* <BaiTapLayout></BaiTapLayout> */}
-{/* <DataBinding></DataBinding> */}
-{/* <DataBindingClassComponent></DataBindingClassComponent> */}
-{/* <HandleEvent></HandleEvent> */}
-{/* <DemoState></DemoState> */}
-{/* <BaiTapChonXe></BaiTapChonXe> */}
-<RenderWithMap></RenderWithMap>
+      {/* <BaiTapLayout></BaiTapLayout> */}
+      {/* <DataBinding></DataBinding> */}
+      {/* <DataBindingClassComponent></DataBindingClassComponent> */}
+      {/* <HandleEvent></HandleEvent> */}
+      {/* <DemoState></DemoState> */}
+      {/* <BaiTapChonXe></BaiTapChonXe> */}
+      {/* <RenderWithMap></RenderWithMap> */}
+      {/* <BaiTapRenderPhim></BaiTapRenderPhim> */}
+      {/* <DemoProp></DemoProp> */}
+      <ProductListRCC></ProductListRCC>
+      
     </div>
   );
 }
