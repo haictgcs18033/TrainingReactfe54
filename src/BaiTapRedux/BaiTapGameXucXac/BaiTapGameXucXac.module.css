@@ -1,0 +1,14 @@
+@font-face{
+    font-family: fontGame;
+    src: url(../../asset/video_19_game_xuc_xac/Pony.ttf);
+}
+.bgGame{
+    /* Luu y link den hinh anh tu file scss hoac css thi link tai file nay ra den noi chua hinh anh */
+    background-image: url('../../asset/video_19_game_xuc_xac/bgGame.png');
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    top:0;
+    left: 0;
+    font-family: fontGame;
+}
