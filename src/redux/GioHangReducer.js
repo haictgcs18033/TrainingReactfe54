@@ -42,7 +42,7 @@ export const GioHangReducer = (state = stateGioHang, action) => {
             return { ...state };
         }
         case 'TANG_GIAM': {
-            const gioHangCapNhat = [...state.gioHang]
+            const gioHangCapNhat = [...state.gioHang];
             let spGioHang = gioHangCapNhat.find(sp => sp.maSP === action.maSPClick)
             if (spGioHang) {
                 if (action.SoLuong === -1 && spGioHang.soLuong <= 1) {

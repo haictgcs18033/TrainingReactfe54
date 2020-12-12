@@ -8,20 +8,31 @@ import {connect} from 'react-redux'
              )
          })
      }
+     hienThiTongDiem=()=>{
+         const tongDiem=this.props.mangXucXac.reduce((tongDiem,xucXac,index)=>{
+               return tongDiem+=xucXac.diem
+         },0)
+         return tongDiem >10 ? `${tongDiem}-Xiu`:`${tongDiem}-Tai`
+     }
     render() {
         console.log(this.props);
         return (
             <div className="container">
                 <div className="row text-center">
+                    <div className="col-12">
+                        <h1 className="display-4 text-primary">{this.hienThiTongDiem()}</h1>
+                    </div>
                     <div className="col-4">
-                        <button className="btn btn-danger p-5 "><span className="display-4">Tai</span></button>
+                        <button onClick={()=>{this.props.datCuoc(true)}} 
+                        className="btn btn-success p-5 "><span className="display-4">Tai</span></button>
                     </div>
                     <div className="col-4 ">
                         {/* Cach di hinh khong tu file public ma tu file scr */}
                       {this.renderXucXac()}
                     </div>
                     <div className="col-4">
-                        <button className="btn btn-danger p-5 "><span className="display-4">Xiu</span></button>
+                        <button onClick={()=>{this.props.datCuoc(false)}} 
+                        className="btn btn-danger p-5 "><span className="display-4">Xiu</span></button>
                     </div>
                 </div>
             </div>
@@ -33,4 +44,14 @@ const mapStateToProps =(state)=>{
         mangXucXac:state.stateGameXucXac.mangXucXac
     }
 }
-export default connect(mapStateToProps)(XucXac);
+const mapDispatchToProps=dispatch=>{
+    return{
+     datCuoc: (datCuoc)=>{
+         dispatch({
+             type:'DAT_CUOC',
+             datCuoc
+         })
+     }
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(XucXac);
