@@ -2,81 +2,81 @@ import React, { Component } from 'react'
 
 export default class FormSinhVien extends Component {
     state = {
-        value:{
-            maSinhVien: '',
-            tenSinhVien: '',
-            email: '',
-            soDienThoai: ''
+        values: {
+            maSinhVien:'',
+            tenSinhVien:'',
+            email:'',
+            soDienThoai:''
         },
-        errors:{
-            maSinhVien: '',
-            tenSinhVien: '',
-            email: '',
-            soDienThoai: ''
-        }  
+        errors : {
+            maSinhVien:'',
+            tenSinhVien:'',
+            email:'',
+            soDienThoai:''
+        }
+ 
     }
 
-    handleChangeInput=(event)=>{
-        //event dai dien cho su kien xay ra tren the 
+    handleChangeInput = (event)=>{
+        //event đại diện cho sự kiện xảy ra trên thẻ
         let {value,name} = event.target;
-        let typeInput = event.target.getAttribute('typeInput')//attribute la thuoc tinh nguoi dung tu them tren the
+        let typeInput = event.target.getAttribute('typeInput') //attribute là thuộc tính người dùng tự thêm trên thẻ
         console.log(typeInput);
-        // this.setState({
-        //     [name]:value
-            // maSinhVien:value,
-            // tenSinhVien:value
-        // },()=>{
-        //     console.log(this.state);
-        // })
-        //Xu li cap nhat value
-        const newValues={...this.state.values};//luu giu cac gia tri truoc noi dung da nhap
-        //Gan gia tri moi cho thuoc tinh dang nhap
-        newValues[name]=value;
-        //Xu li loi
-        const newErrors={...this.state.errors};//Giu lai ca gia tri error cu
-        //Neu value cua truong dang nhap bi rong thi gan loi cho truong do
-        newErrors[name]=value.trim() === '' ?  name + ' Khong duoc bo trong !' : '';
-        if(typeInput=== 'email'){
-            const regexEmail=/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        //Xử lý cập nhật values
+        const newValues = {...this.state.values}; //Lưu giữ lại các giá trị trước nd đã nhập
+        newValues[name] = value; //Gán giá trị mới cho thuộc tính đang nhập
+
+        //Xử lý errors 
+        const newErrors = {...this.state.errors}; //Giữ lại các giá trị errors cũ
+        //Nếu value của trường đang nhập bị rổng thì gán lỗi cho trường đó
+        newErrors[name] = value.trim() === '' ? name + ' không được bỏ trống !' : '';
+        if(typeInput === 'email') {
+            const regexEmail = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
             if(!regexEmail.test(value)){
-                newErrors[name]=name +'Khong dung dinh dang';
+                newErrors[name] = name + ' không đúng định dạng !';
             }
         }
-        if(typeInput==='phone'){
-            const regexNumber=/^[0-9]+$/
+
+        if(typeInput === 'phone') {
+            const regexNumber = /^[0-9]+$/;
             if(!regexNumber.test(value)){
-                newErrors[name]=name + 'Khong dung dinh dang ';
+                newErrors[name] = name + ' không đúng định dạng !';
             }
         }
-        //satState lai
+
+        //setState lại 
         this.setState({
             values:newValues,
-            errors:newErrors
+            errors: newErrors
         },()=>{
-            console.log(this.state);
+            console.log(this.state) 
         })
+
+
     }
-    handleSubmit = (event)=>{
-        event.preventDefault();//Chan su kien submit cua browser khi nguoi dung submit=react form
-        //Kiem tra du lieu nguoi dung hop le =>submit
-        let valid =true;
-        //Kiem tra tat ca cac thuoc tinh trong this.state.values
-        for(let key in this.state.values){
-            if(this.state.value[key].trim()===''){
-                valid=false;
+    handleSubmit = (event) => {
+        event.preventDefault(); //Chặn sự kiện submit của browser khi người dùng submit = reactform
+        //Kiểm tra dữ liệu người dùng hợp lệ => submit
+        let valid = true;
+        //Kiểm tra tất cả các thuộc tính trong this.state.values 
+        for(let key in this.state.values) {
+            if(this.state.values[key].trim() === '') {
+                valid = false;
             }
         }
-        //Kiem tra tat ca cac thuoc tinh cua this.state.errors
-        for(let key in this.state.errors){
-            if(this.state.errors[key]!==''){
-                valid=false;
+        //Kiểm tra tất cả các thuộc tính của this.state.errors 
+        for(let key in this.state.errors) {
+            if(this.state.errors[key] !== '') {
+                valid = false;
             }
         }
-        if(!valid){
-            alert ('Du lieu khong hop le !');
-            return
-        }
-        //Xu li submit => api hoac redux (dispatch)...
+        if(!valid) {
+            alert('Dữ liệu không hợp lệ !');
+            return ;
+        } 
+        //Xử lý submit => api hoặc redux (dispatch) ...
+
     }
     render() {
         return (
