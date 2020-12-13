@@ -3,6 +3,7 @@ import { combineReducers, createStore } from 'redux';
 
 import { GioHangReducer } from '../redux/GioHangReducer'
 import { BaiTapGameXucXacReducer } from './BaiTapGameXucXacReducer';
+import { QuanLiSinhVienReducer } from './QuanLiSinhVienReducer';
 
 const rootReducer = combineReducers({
     //Cac state sau nay khai bao o day
@@ -10,7 +11,8 @@ const rootReducer = combineReducers({
     //     return state
     // }
     stateGioHang: GioHangReducer,
-    stateGameXucXac: BaiTapGameXucXacReducer
+    stateGameXucXac: BaiTapGameXucXacReducer,
+    QuanLiSinhVienReducer
 })
 
 //Tao ra store chua rootReducer (xem nhu state tong cua ung dung)
