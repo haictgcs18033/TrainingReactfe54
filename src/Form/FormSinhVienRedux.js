@@ -32,9 +32,9 @@ class FormSinhVienRedux extends Component {
         }
         this.props.dispatch({
             type: 'SET_SV_REDUX',
-            sinhVienRedux:{
-                values:newValues,
-                errors:newErrors
+            sinhVienRedux: {
+                values: newValues,
+                errors: newErrors
             }
         })
 
@@ -116,12 +116,12 @@ class FormSinhVienRedux extends Component {
 
                     </div>
                     <div className="card-footer">
-                        <button className="btn btn-success">Them Sinh Vien</button>
+                        <button className="btn btn-success" type="submit">Them Sinh Vien</button>
                         <button className="btn btn-warning" type="button"
                             onClick={() => {
-                               this.props.dispatch({
-                                   type:'CAP_NHAT_SINH_VIEN'
-                               })
+                                this.props.dispatch({
+                                    type: 'CAP_NHAT_SINH_VIEN'
+                                })
                             }}>Cap nhat sinh vien</button>
                     </div>
                 </form>

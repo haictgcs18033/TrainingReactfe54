@@ -45,7 +45,7 @@ export const QuanLiSinhVienReducer = (state = stateDefault, action) => {
                 svUpdate.email=state.sinhVienRedux.values.email;
                 svUpdate.soDienThoai=state.sinhVienRedux.values.soDienThoai;
             }
-            // mangSinhVienCapNhat.push(svUpdate)
+           
             state.mangSinhVien = mangSinhVienCapNhat;
             return { ...state };
         }

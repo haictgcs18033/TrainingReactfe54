@@ -29,7 +29,7 @@ export default class ReactLifeCycle extends Component {
                        number:this.state.number+1
                    })
                }}>+</button>
-               {this.state.number<2 ?  <ChildComponentLifeCycle></ChildComponentLifeCycle>:''} 
+               {this.state.number<2 ?  <ChildComponentLifeCycle></ChildComponentLifeCycle> : ''} 
             </div>
         )
     }

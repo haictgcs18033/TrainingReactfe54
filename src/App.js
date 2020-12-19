@@ -18,6 +18,9 @@ import BaiTapGioHangRedux from './BaiTapRedux/BaiTapGioHangRedux/BaiTapGioHangRe
 import BaiTapGameXucXac from './BaiTapRedux/BaiTapGameXucXac/BaiTapGameXucXac';
 import BaiTapQuanLiSinhVien from './Form/BaiTapQuanLiSinhVien';
 import ReactLifeCycle from './ReactLifeCycle/ReactLifeCycle';
+import DemoPure from './PureComponent/DemoPure';
+import RequestApi from './RequestApi/RequestApi';
+
 
 
 function App() {
@@ -41,8 +44,10 @@ function App() {
       {/* <PropsWithEvent></PropsWithEvent> */}
       {/* <BaiTapGioHangRedux></BaiTapGioHangRedux> */}
       {/* <BaiTapGameXucXac></BaiTapGameXucXac> */}
-      <BaiTapQuanLiSinhVien></BaiTapQuanLiSinhVien>
+      {/* <BaiTapQuanLiSinhVien></BaiTapQuanLiSinhVien> */}
       {/* <ReactLifeCycle></ReactLifeCycle> */}
+     {/* <DemoPure></DemoPure> */}
+     <RequestApi></RequestApi>
     </div>
   );
 }
